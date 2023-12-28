@@ -24,5 +24,24 @@
       "default"
     ],
     "sharedGlobals": []
+  },
+  "release": {
+    "projects": [
+      "cli"
+    ],
+    "projectsRelationship": "independent",
+    "git": {
+      "commit": true,
+      "tag": true
+    },
+    "version": {
+      "generatorOptions": {
+        "specifierSource": "conventional-commits",
+        "currentVersionResolver": "git-tag"
+      }
+    },
+    "changelog": {
+      "projectChangelogs": true
+    }
   }
 }
