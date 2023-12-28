@@ -6,19 +6,33 @@
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/cli",
         "main": "apps/cli/src/index.ts",
         "tsConfig": "apps/cli/tsconfig.lib.json",
-        "assets": ["apps/cli/*.md"],
+        "assets": [
+          "apps/cli/*.md"
+        ],
         "generatePackageJson": true,
-        "format": ["cjs"]
+        "format": [
+          "cjs"
+        ]
       }
     },
     "publish": {
       "command": "node tools/scripts/publish.mjs cli {args.ver} {args.tag}",
-      "dependsOn": ["build"]
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "packageRoot": "dist/apps/cli"
+      }
     }
   },
   "tags": []
